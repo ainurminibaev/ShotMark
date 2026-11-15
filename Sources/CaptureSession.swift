@@ -134,6 +134,7 @@ final class CaptureSession: NSObject, NSSharingServicePickerDelegate {
 
     private init(shots: [Shot], previousApp: NSRunningApplication?) {
         self.previousApp = previousApp
+        super.init()
         for shot in shots {
             let window = OverlayWindow(screen: shot.screen)
             let size = shot.screen.frame.size
@@ -157,7 +158,6 @@ final class CaptureSession: NSObject, NSSharingServicePickerDelegate {
             windows.append(window)
             canvases.append(canvas)
         }
-        super.init()
     }
 
     private func show() {
